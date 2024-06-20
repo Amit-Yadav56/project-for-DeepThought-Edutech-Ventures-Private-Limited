@@ -55,7 +55,7 @@ const jsonData = {
         },
         {
           "asset_id": 18885,
-          "asset_title": "Structure you pointers ",
+          "asset_title": "Structure your pointers ",
           "asset_description": "Write a 400-500 word article, from your thread. Publish your understanding, and showcase your learning to the entire world.",
           "asset_content": " ",
           "asset_type": "input_asset",
@@ -83,6 +83,21 @@ const jsonData = {
   "viewcount": 0,
   "publishedAt": 1672893847792
 };
+
+// Add event listener to execute the function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  createAssetComponent(jsonData, 'main-content');
+  sidebar_content(jsonData)
+  sidebar_tasks(jsonData)
+});
+
+
+document.getElementById('sidebar-btn').addEventListener('click', function () {
+  document.getElementById('sidebar').classList.toggle('collapsed');
+});
+document.querySelector('.sidebar .top button').addEventListener('click', function () {
+  document.getElementById('sidebar').classList.toggle('collapsed');
+});
 
 function createAssetComponent(data, containerId) {
   const mainContainer = document.getElementById(containerId);
@@ -125,7 +140,7 @@ function createAssetComponent(data, containerId) {
         threadImg.alt = '';
         threadDiv.appendChild(threadImg);
 
-        const threadText = document.createElement('p');
+        const threadText = document.createElement('h1');
         threadText.textContent = 'Thread A';
         threadText.className = 'thread-text';
         threadDiv.appendChild(threadText);
@@ -139,7 +154,7 @@ function createAssetComponent(data, containerId) {
         const subThread = document.createElement('div');
         subThread.className = 'sub-thread';
 
-        const subThreadText = document.createElement('p');
+        const subThreadText = document.createElement('h1');
         subThreadText.textContent = 'Sub thread 1';
         subThreadText.className = 'sub-thread-text';
         subThread.appendChild(subThreadText);
@@ -159,7 +174,7 @@ function createAssetComponent(data, containerId) {
         const subInterception = document.createElement('div');
         subInterception.className = 'sub-interception';
 
-        const subInterceptionText = document.createElement('p');
+        const subInterceptionText = document.createElement('h1');
         subInterceptionText.textContent = 'Sub interception 1';
         subInterceptionText.className = 'sub-thread-text';
         subInterception.appendChild(subInterceptionText);
@@ -189,7 +204,7 @@ function createAssetComponent(data, containerId) {
 
         const selectCatalogButton = document.createElement('button');
         selectCatalogButton.className = 'select-button';
-        selectCatalogButton.textContent = 'Select catalog';
+        selectCatalogButton.textContent = 'Select categ';
         const catalogButtonImg = document.createElement('img');
         catalogButtonImg.src = './asset/Vector-down.png';
         catalogButtonImg.alt = '';
@@ -215,7 +230,7 @@ function createAssetComponent(data, containerId) {
         const summaryDiv = document.createElement('div');
         summaryDiv.className = 'summary-of-thread';
 
-        const summaryText = document.createElement('p');
+        const summaryText = document.createElement('h1');
         summaryText.textContent = 'Summary for thread A';
         summaryText.className = 'sub-thread-text';
         summaryDiv.appendChild(summaryText);
@@ -329,7 +344,6 @@ function createAssetComponent(data, containerId) {
         const iframe = document.createElement('iframe');
         iframe.src = asset.asset_content.trim();
         iframe.allowFullscreen = true;
-        iframe.frameBorder = '0';
         assetContent.appendChild(iframe);
       }
       else {
@@ -394,20 +408,4 @@ const sidebar_tasks = (data) => {
     taskCounter.appendChild(count)
   })
 }
-
-
-// Add event listener to execute the function when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  createAssetComponent(jsonData, 'main-content');
-  sidebar_content(jsonData)
-  sidebar_tasks(jsonData)
-});
-
-
-document.getElementById('sidebar-btn').addEventListener('click', function () {
-  document.getElementById('sidebar').classList.toggle('collapsed');
-});
-document.querySelector('.sidebar .top button').addEventListener('click', function () {
-  document.getElementById('sidebar').classList.toggle('collapsed');
-});
 
