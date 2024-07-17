@@ -235,7 +235,9 @@ nav .menu button,
   min-height: 600px;
   width: 488px;
   background: #FDFDFD;
-  box-shadow: 1px 1px 4px 2px #00000040;
+  /* adding new margin in rem and new box-shadow cuz i hate the old one */
+  margin: 2rem;
+  box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
 
 }
 
